@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'colors_app.dart';
+import 'text_styles.dart';
 
 class AppStyles {
   static AppStyles? _instance;
@@ -11,10 +12,11 @@ class AppStyles {
     return _instance!;
   }
 
-  ButtonStyle get buttonPrimary => ElevatedButton.styleFrom(
+  ButtonStyle get primaryButton => ElevatedButton.styleFrom(
     backgroundColor: ColorsApp.instance.primary,
     //foregroundColor: Colors.white,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
+    textStyle: TextStyles.instance.textButtonLabel,
   );
 }
 
