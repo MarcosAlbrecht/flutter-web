@@ -7,7 +7,7 @@ import '../../rest_client/custom_dio.dart';
 class CoreModule extends Module {
   @override
   void binds(i) {
-    i.addLazySingleton<Storage>((i) => SessionStorage());
-    i.addLazySingleton<CustomDio>((i) => CustomDio());
+    i.addLazySingleton<Storage>(SessionStorage.new);
+    i.addLazySingleton<CustomDio>(CustomDio.new);
   }
 }
