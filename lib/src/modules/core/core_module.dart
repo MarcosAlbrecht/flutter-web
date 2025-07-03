@@ -8,6 +8,6 @@ class CoreModule extends Module {
   @override
   void binds(i) {
     i.addLazySingleton<Storage>((i) => SessionStorage());
-    i.addLazySingleton((i) => CustomDio());
+    i.addLazySingleton<CustomDio>((i) => CustomDio());
   }
 }

@@ -7,14 +7,13 @@ import 'modules/login/login_module.dart';
 
 class AppModule extends Module {
   @override
-  List<Module> get imports => [CoreModule()];
-
-  @override
   void binds(i) {}
+  @override
+  List<Module> get imports => [CoreModule()];
 
   @override
   void routes(r) {
     r.module('/login', module: LoginModule());
-    r.child('/', child: (context) => HomePage());
+    r.child('/', child: (context) => const HomePage());
   }
 }

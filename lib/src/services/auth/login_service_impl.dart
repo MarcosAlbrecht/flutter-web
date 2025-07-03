@@ -1,11 +1,11 @@
 import '../../core/global/constants.dart';
-import '../../core/storage/storage.dart';
+import '../../core/storage/session_storage.dart';
 import '../../repositories/auth/auth_repository.dart';
 import './login_service.dart';
 
 class LoginServiceImpl implements LoginService {
   final AuthRepository _authRepository;
-  final Storage _storage;
+  final SessionStorage _storage;
 
   LoginServiceImpl(this._authRepository, this._storage);
   @override
