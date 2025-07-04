@@ -61,7 +61,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
     return Scaffold(
       backgroundColor: context.colors.black,
       body: Form(
-        //key: formKey,
+        key: formKey,
         child: Stack(
           alignment: Alignment.topCenter,
           children: [
@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                         ),
                         SizedBox(height: 20),
                         TextFormField(
-                          //controller: emailEC,
+                          controller: emailEC,
                           decoration: InputDecoration(labelText: 'Email'),
                           validator: Validatorless.multiple([
                             Validatorless.required('Email obrigatório'),
@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                         ),
                         SizedBox(height: 20),
                         TextFormField(
-                          //controller: passwordEC,
+                          controller: passwordEC,
                           decoration: InputDecoration(labelText: 'Senha'),
                           validator: Validatorless.multiple([Validatorless.required('Senha obrigatório')]),
                         ),
@@ -116,11 +116,11 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                           width: double.infinity,
                           height: 50,
                           child: ElevatedButton(
-                            onPressed: () {
-                              //final formValid = formKey.currentState?.validate() ?? false;
-                              //if (formValid) {
-                              //  controller.login(emailEC.text, passwordEC.text);
-                              //}
+                            onPressed: () async {
+                              final formValid = formKey.currentState?.validate() ?? false;
+                              if (formValid) {
+                                await controller.login(emailEC.text, passwordEC.text);
+                              }
                             },
                             child: Text('Entrar'),
                           ),
