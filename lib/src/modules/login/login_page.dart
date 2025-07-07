@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
           break;
         case LoginStateStatus.success:
           hideLoader();
-          Modular.to.navigate('/');
+          Modular.to.navigate('/home');
           break;
         case LoginStateStatus.error:
           hideLoader();
@@ -52,6 +52,13 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
     passwordEC.dispose();
     statusReactionDisposer();
     super.dispose();
+  }
+
+  void _formSubmit() async {
+    final formValid = formKey.currentState?.validate() ?? false;
+    if (formValid) {
+      await controller.login(emailEC.text, passwordEC.text);
+    }
   }
 
   @override
@@ -98,6 +105,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                         ),
                         SizedBox(height: 20),
                         TextFormField(
+                          onFieldSubmitted: (value) => _formSubmit(),
                           controller: emailEC,
                           decoration: InputDecoration(labelText: 'Email'),
                           validator: Validatorless.multiple([
@@ -107,6 +115,8 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                         ),
                         SizedBox(height: 20),
                         TextFormField(
+                          onFieldSubmitted: (value) => _formSubmit(),
+                          obscureText: true,
                           controller: passwordEC,
                           decoration: InputDecoration(labelText: 'Senha'),
                           validator: Validatorless.multiple([Validatorless.required('Senha obrigatório')]),
@@ -115,15 +125,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                         SizedBox(
                           width: double.infinity,
                           height: 50,
-                          child: ElevatedButton(
-                            onPressed: () async {
-                              final formValid = formKey.currentState?.validate() ?? false;
-                              if (formValid) {
-                                await controller.login(emailEC.text, passwordEC.text);
-                              }
-                            },
-                            child: Text('Entrar'),
-                          ),
+                          child: ElevatedButton(onPressed: _formSubmit, child: Text('Entrar')),
                         ),
                       ],
                     ),
