@@ -8,8 +8,9 @@ import 'modules/template/base_layout.dart';
 class AppModule extends Module {
   @override
   void binds(i) {}
-  // @override
-  // List<Module> get imports => [CoreModule()];
+
+  //@override
+  //List<Module> get imports => [CoreModule()];
 
   @override
   void routes(r) {
