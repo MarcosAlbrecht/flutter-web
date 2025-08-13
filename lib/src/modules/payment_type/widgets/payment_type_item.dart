@@ -31,7 +31,12 @@ class PaymentTypeItem extends StatelessWidget {
             Expanded(
               child: Align(
                 alignment: Alignment.bottomRight,
-                child: TextButton(onPressed: () {}, child: Text('Editar')),
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Editar',
+                  ),
+                ),
               ),
             ),
           ],

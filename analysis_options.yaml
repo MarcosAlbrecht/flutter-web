@@ -9,6 +9,9 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
+formatter:
+  trailing_commas: preserve
+
 analyzer:
   exclude:
     - "**/*.g.dart"
@@ -24,8 +27,7 @@ linter:
   # or a specific dart file by using the `// ignore: name_of_lint` and
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
-  formatter:
-    trailing_commas: preserve
+
   rules:
     avoid_web_libraries_in_flutter: false
     prefer_relative_imports: true
